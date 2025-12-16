@@ -1,0 +1,19 @@
+[package]
+name = "project-parasite"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cortex-m = "0.7.7"
+cortex-m-rt = "0.7.3"
+cortex-m-mpu = "0.7.0"
+defmt = "0.3.5"
+defmt-rtt = "0.4.0"
+panic-halt = "0.2.0"
+
+# A dummy dependency to ensure the project builds, 
+# as a binary target with no source files is not allowed.
+# We will populate main.rs in the next step.
+[[bin]]
+name = "project-parasite"
+path = "src/main.rs"

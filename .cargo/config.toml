@@ -1,0 +1,5 @@
+[build]
+target = "thumbv7m-none-eabi" # Target for ARM Cortex-M3
+
+[target.thumbv7m-none-eabi]
+runner = "qemu-system-arm -M mps2-an385 -nographic -kernel"
